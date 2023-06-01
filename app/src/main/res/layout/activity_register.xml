@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_gradation_color"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="77dp"
+        android:fontFamily="@font/jamsil_bold"
+        android:text="환영합니다!"
+        android:textColor="#6C91FA"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtOption1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/jamsil_regular"
+        android:text="TETRIS"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/txtWelcome"
+        app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
+
+    <TextView
+        android:id="@+id/txtOption1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/jamsil_regular"
+        android:text="아이디 (이메일 주소)"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmail"
+        app:layout_constraintStart_toStartOf="@+id/txtEmail" />
+
+    <TextView
+        android:id="@+id/txtOption2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/jamsil_regular"
+        android:text="비밀번호"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/txtPasswd"
+        app:layout_constraintStart_toStartOf="@+id/txtPasswd" />
+
+    <TextView
+        android:id="@+id/txtOption3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="88dp"
+        android:fontFamily="@font/jamsil_regular"
+        android:text="비밀번호 확인"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/txtOption4"
+        app:layout_constraintStart_toStartOf="@+id/txtPasswdCheck" />
+
+    <TextView
+        android:id="@+id/txtOption4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="221dp"
+        android:fontFamily="@font/jamsil_regular"
+        android:text="이름"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtName" />
+
+    <TextView
+        android:id="@+id/txtOption5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/jamsil_regular"
+        android:text="전화번호"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/txtPhone"
+        app:layout_constraintStart_toStartOf="@+id/txtPhone" />
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="223dp"
+        android:ems="10"
+        android:fontFamily="@font/jamsil_regular"
+        android:hint="example@gmail.com"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/txtOption4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtPasswd"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="99dp"
+        android:ems="10"
+        android:fontFamily="@font/jamsil_regular"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPasswdCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtEmail" />
+
+    <EditText
+        android:id="@+id/txtPasswdCheck"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="25dp"
+        android:ems="10"
+        android:fontFamily="@font/jamsil_regular"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/txtOption4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtOption3" />
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="98dp"
+        android:ems="10"
+        android:fontFamily="@font/jamsil_regular"
+        android:hint="홍길동"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/btnRegister"
+        app:layout_constraintEnd_toStartOf="@+id/txtPhone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtPasswdCheck" />
+
+    <EditText
+        android:id="@+id/txtPhone"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:fontFamily="@font/jamsil_regular"
+        android:hint="01012345678"
+        android:maxLength="11"
+        android:inputType="phone"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtName" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/round_white_button"
+        android:fontFamily="@font/jamsil_regular"
+        android:gravity="center"
+        android:text="회원가입"
+        android:textColor="@drawable/blue_to_white_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnCancle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="17dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/grey"
+        android:contentDescription="취소버튼"
+        app:layout_constraintBottom_toTopOf="@+id/txtWelcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <TextView
+        android:id="@+id/btnWithdrawal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/jamsil_regular"
+        android:text="특수문자 포함 최소 8자"
+        android:textColor="@color/grey"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtPasswd"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/aniShowPw"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onLottieButtonClick"
+        app:layout_constraintStart_toEndOf="@+id/txtPasswd"
+        app:layout_constraintTop_toTopOf="@+id/txtPasswd"
+        app:lottie_autoPlay="false"
+        app:lottie_enableMergePathsForKitKatAndAbove="true"
+        app:lottie_loop="false"
+        app:lottie_progress="0"
+        app:lottie_rawRes="@raw/password_show"
+        app:lottie_speed="1" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/aniShowPw2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onLottieButtonClick"
+        app:layout_constraintStart_toEndOf="@+id/txtPasswdCheck"
+        app:layout_constraintTop_toTopOf="@+id/txtPasswdCheck"
+        app:lottie_autoPlay="false"
+        app:lottie_enableMergePathsForKitKatAndAbove="true"
+        app:lottie_loop="false"
+        app:lottie_progress="0"
+        app:lottie_rawRes="@raw/password_show"
+        app:lottie_speed="1" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/aniRegisterSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/register_success"
+        app:lottie_url="REPLACE_JSON_URL" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

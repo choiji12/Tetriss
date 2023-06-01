@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "377935267069",
+    "firebase_url": "https://tetris-project-1292e-default-rtdb.firebaseio.com",
+    "project_id": "tetris-project-1292e",
+    "storage_bucket": "tetris-project-1292e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377935267069:android:9e65f4eea4018b3ea46a94",
+        "android_client_info": {
+          "package_name": "com.rose.tetris"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377935267069-nl221p3e2fcl8dnqgvdu236rikpios4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEyEReVSWxJLMKAjZoLp3_mXr_kSL-6i8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377935267069-nl221p3e2fcl8dnqgvdu236rikpios4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

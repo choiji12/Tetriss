@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/tab_home"
+        android:enabled="true"
+        android:title="홈"
+        android:icon="@drawable/home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/tab_analysis"
+        android:enabled="true"
+        android:title="분석"
+        android:icon="@drawable/graph"
+        app:showAsAction="ifRoom"
+        ></item>
+    <item
+        android:id="@+id/tab_calander"
+        android:enabled="true"
+        android:title="운동"
+        android:icon="@drawable/calendar"
+        app:showAsAction="ifRoom"
+        ></item>
+</menu>

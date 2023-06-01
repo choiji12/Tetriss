@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" />
+    <stroke
+        android:width="3dp"
+        android:color="@color/blue" /> <!-- 테두리 색상을 원하는 색상으로 변경하세요 -->
+    <corners android:radius="15dp" />
+</shape>

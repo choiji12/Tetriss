@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--평상시-->
+    <item android:state_focused="false">
+        <shape>
+            <!--배경-->
+            <solid android:color="@color/white"></solid>
+            <!--테두리-->
+            <stroke
+                android:width="2dp"
+                android:color="@color/dark_grey"/>
+            <!--둥근테두리-->
+            <corners
+                android:bottomRightRadius="5dp"
+                android:bottomLeftRadius="5dp"
+                android:topLeftRadius="5dp"
+                android:topRightRadius="5dp"/>
+        </shape>
+    </item>
+    <!--클릭했을때-->
+    <item android:state_focused="true">
+        <shape>
+            <!--배경-->
+            <solid android:color="@color/white"></solid>
+            <!--테두리-->
+            <stroke
+                android:width="2dp"
+                android:color="#FF60A6"/>
+            <!--둥근테두리-->
+            <corners
+                android:bottomRightRadius="5dp"
+                android:bottomLeftRadius="5dp"
+                android:topLeftRadius="5dp"
+                android:topRightRadius="5dp"/>
+        </shape>
+    </item>
+
+</selector>

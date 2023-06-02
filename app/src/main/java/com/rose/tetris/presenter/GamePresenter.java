@@ -1,5 +1,7 @@
 package com.rose.tetris.presenter;
 
+import android.util.Log;
+
 public class GamePresenter {
     private GameModel mGameModel;
     private GameView mGameView;

@@ -2,7 +2,9 @@ package com.rose.tetris.models;
 
 import android.os.Handler;
 import android.util.Log;
+import android.widget.TextView;
 
+import com.rose.tetris.R;
 import com.rose.tetris.presenter.GameModel;
 import com.rose.tetris.presenter.GameTurn;
 import com.rose.tetris.presenter.Point;
@@ -96,6 +98,7 @@ class TetrisGameModel implements GameModel {
 
     @Override
     public void newGame() {
+        Log.d("mscor","msc"+mScore);
         mScore = 0;
         for (int i = 0; i < PLAYING_AREA_HEIGHT; i++) {
             for (int j = 0; j < PLAYING_AREA_WIDTH; j++) {
@@ -430,10 +433,13 @@ class TetrisGameModel implements GameModel {
     @Override
     public void setGameOverListener(PresenterCompletableObserver onGameOverListener) {
         mGameOverObserver = onGameOverListener;
+
     }
 
     @Override
     public void setScoreUpdatedListener(PresenterObserver<Integer> onScoreUpdatedListener) {
+        Log.d("sco3","sc"+mScore);
         mScoreUpdatedObserver = onScoreUpdatedListener;
+        Log.d("sco4","sc"+mScore);
     }
 }

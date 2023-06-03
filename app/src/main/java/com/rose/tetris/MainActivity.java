@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.L;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button myScore;
     private Button allScore;
+    private Button storeScore;
+    private TextView gameScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +50,48 @@ public class MainActivity extends AppCompatActivity {
         userText.setText(userID);
 
 
-
+        gameScore = findViewById(R.id.game_score);
         myScore = findViewById(R.id.myScore);
         allScore = findViewById(R.id.allScore);
+        storeScore = findViewById(R.id.storeScore);
+
+        storeScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String gscore = gameScore.getText().toString();
+                String scoreValue = gscore.replaceAll("\\D+", "");
+                Log.d("scor","seer"+scoreValue);
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if(success){
+                                Log.d("dkss","sdasda");
+                                Toast.makeText(getApplicationContext(),"점수가 등록되었습니다.",Toast.LENGTH_SHORT).show();
+
+                            }else {
+                                Toast.makeText(getApplicationContext(),"점수등록에 실패하였습니다.",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                };
+
+                // 서버로 Volley를 이용해서 요청을 하는 코드
+                TetrisScoreRequest tetrisScoreRequest = new TetrisScoreRequest(userID, scoreValue, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+                queue.add(tetrisScoreRequest);
+
+            }
+        });
+
 
         myScore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -272,29 +314,3 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-//    Response.Listener<String> responseListener = new Response.Listener<String>() {
-//        @Override
-//        public void onResponse(String response) {
-//            try {
-//
-//                JSONObject jsonObject = new JSONObject(response);
-//                boolean success = jsonObject.getBoolean("success");
-//                if(success){
-//                    Log.d("dkss","sdasda");
-//                    Toast.makeText(getApplicationContext(),"점수가 등록되었습니다.",Toast.LENGTH_SHORT).show();
-//
-//                }else {
-//                    Toast.makeText(getApplicationContext(),"점수등록에 실패하였습니다.",Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//
-//        }
-//    };
-//
-//    // 서버로 Volley를 이용해서 요청을 하는 코드
-//    TetrisScoreRequest tetrisScoreRequest = new TetrisScoreRequest("testt", "99", responseListener);
-//    RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-//        queue.add(tetrisScoreRequest);

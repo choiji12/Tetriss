@@ -133,8 +133,6 @@ public class MainActivity extends AppCompatActivity {
                             JSONArray tuples = jsonObject.getJSONArray("tuples"); // 튜플 배열을 가져옵니다.
 
 
-
-
                             if (success) {
                                 for (int i = 0; i < tuples.length(); i++) {
                                     JSONObject tuple = tuples.getJSONObject(i);
@@ -144,8 +142,6 @@ public class MainActivity extends AppCompatActivity {
                                     textID.setText(ID);
                                     TextView textScore = textScoreArray[i];
                                     textScore.setText(userScore);
-
-
 
                                 }
                             } else {

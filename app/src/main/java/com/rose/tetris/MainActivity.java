@@ -1,7 +1,6 @@
 package com.rose.tetris;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,14 +8,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.airbnb.lottie.L;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -24,6 +20,9 @@ import com.rose.tetris.models.GameModelFactory;
 import com.rose.tetris.models.GameType;
 import com.rose.tetris.presenter.GamePresenter;
 import com.rose.tetris.presenter.GameTurn;
+import com.rose.tetris.request.TetrisAllRequest;
+import com.rose.tetris.request.TetrisRequest;
+import com.rose.tetris.request.TetrisScoreRequest;
 import com.rose.tetris.views.GameFrame;
 import com.rose.tetris.views.GameViewFactory;
 

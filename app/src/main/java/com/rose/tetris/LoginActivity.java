@@ -1,16 +1,22 @@
 package com.rose.tetris;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +48,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -53,6 +64,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private DatabaseReference mDatabaseRef; // 실시간 DB
     private EditText txtEmail, txtPasswd;
     private boolean isPasswordVisible = false;
+
+    private int captchaCount = 0;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -208,6 +221,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                                 }
                                             } else {
                                                 Toast.makeText(LoginActivity.this,"비밀번호를 잘못 입력 하였습니다",Toast.LENGTH_SHORT).show();
+                                                captchaCount++;
+                                                Popup();
                                             }
                                         }
                                     });
@@ -215,6 +230,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         }
                         if(!emailCheck){
                             Toast.makeText(LoginActivity.this,"존재하지 않는 이메일 입니다.",Toast.LENGTH_SHORT).show();
+                            captchaCount++;
+                            Popup();
                             return;
                         }
                     }
@@ -307,4 +324,93 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+    private void Popup(){
+        if(captchaCount > 2){
+            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+            LayoutInflater inflater = getLayoutInflater();
+            View popupView = inflater.inflate(R.layout.popup_captcha, null);
+
+
+            builder.setTitle("로봇이 아닙니다.");
+            builder.setView(popupView);
+
+            TextView txtPass = popupView.findViewById(R.id.pass);
+            EditText editPassCheck = popupView.findViewById(R.id.passCheck);
+
+            txtPass.setText(Random());
+
+            Button btnCheck = popupView.findViewById(R.id.btnCheck);
+
+            builder.setCancelable(false);
+//                                                    builder.setPositiveButton("확인 (OK)", new DialogInterface.OnClickListener() {
+//                                                        @Override
+//                                                        public void onClick(DialogInterface dialog, int which) {
+//                                                            String test = txtPass.getText().toString().toLowerCase().replaceAll(" ", "");
+//
+//                                                            String testpass = editPassCheck.getText().toString().toLowerCase().replaceAll(" ", "");
+//
+//                                                            if(test.equals(testpass)){
+//                                                                captchaCount = 0;
+//                                                                dialog.dismiss();
+//                                                            }else {
+//                                                                Toast.makeText(LoginActivity.this, "실패", Toast.LENGTH_SHORT).show();
+//                                                                txtPass.setText(Random());
+//                                                                editPassCheck.setText("");
+//                                                            }
+//
+//                                                        }
+//                                                    });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            btnCheck.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String test = txtPass.getText().toString().toLowerCase().replaceAll(" ", "");
+
+                    String testpass = editPassCheck.getText().toString().toLowerCase().replaceAll(" ", "");
+
+                    if(test.equals(testpass)){
+                        captchaCount = 0;
+                        dialog.dismiss();
+                    }else {
+                        Toast.makeText(LoginActivity.this, "실패", Toast.LENGTH_SHORT).show();
+                        txtPass.setText(Random());
+                        editPassCheck.setText("");
+                    }
+                }
+            });
+        }
+    }
+
+
+    public String Random(){
+        String[] randomNumber = new String[6];
+        ArrayList<String> num = new ArrayList<String>();
+        char[] eng = new char[26];
+
+        String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        // ArrayList<String> eng = new ArrayList<String>();
+        for(int i = 1 ; i <= 9 ; i++) {
+            num.add(Integer.toString(i));
+        }
+        for(int i = 0; i< 26; i++){
+            eng[i] = ((char)(i + 97));
+        }
+        List<String> alphabetList = Arrays.asList(alphabet);
+        Collections.shuffle(num);
+        Collections.shuffle(alphabetList);
+        for(int i = 0 ; i < 3 ; i++) {
+            randomNumber[i] = num.get(i);
+            randomNumber[i+3] = alphabetList.get(i);
+        }
+        List<String> listRandomNumber = Arrays.asList(randomNumber);
+        Collections.shuffle(listRandomNumber);
+
+
+        String strRandomNumber = listRandomNumber.toString().replaceAll("[^0-9^A-Z ]","");
+        return strRandomNumber;
+    }
+
 }

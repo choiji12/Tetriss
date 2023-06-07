@@ -46,7 +46,6 @@ public class RegisterActivity extends AppCompatActivity {
         if(password.length() < 8){
             return false;
         }
-//        "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$"
         String pattern = "^(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$";
         if(!Pattern.matches(pattern, password)){
             return false;

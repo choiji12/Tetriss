@@ -343,24 +343,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             Button btnCheck = popupView.findViewById(R.id.btnCheck);
 
             builder.setCancelable(false);
-//                                                    builder.setPositiveButton("확인 (OK)", new DialogInterface.OnClickListener() {
-//                                                        @Override
-//                                                        public void onClick(DialogInterface dialog, int which) {
-//                                                            String test = txtPass.getText().toString().toLowerCase().replaceAll(" ", "");
-//
-//                                                            String testpass = editPassCheck.getText().toString().toLowerCase().replaceAll(" ", "");
-//
-//                                                            if(test.equals(testpass)){
-//                                                                captchaCount = 0;
-//                                                                dialog.dismiss();
-//                                                            }else {
-//                                                                Toast.makeText(LoginActivity.this, "실패", Toast.LENGTH_SHORT).show();
-//                                                                txtPass.setText(Random());
-//                                                                editPassCheck.setText("");
-//                                                            }
-//
-//                                                        }
-//                                                    });
 
             AlertDialog dialog = builder.create();
             dialog.show();
@@ -391,7 +373,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         char[] eng = new char[26];
 
         String[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-        // ArrayList<String> eng = new ArrayList<String>();
         for(int i = 1 ; i <= 9 ; i++) {
             num.add(Integer.toString(i));
         }
